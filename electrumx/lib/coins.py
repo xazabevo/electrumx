@@ -3990,3 +3990,26 @@ class Syscoin(AuxPowMixin, Coin):
     RPC_PORT = 8370
     REORG_LIMIT = 2000
     CHUNK_SIZE = 360
+
+
+# Source: https://github.com/xazab/xazab
+class Xazab(Coin):
+    NAME = "Xazab"
+    SHORTNAME = "XAZAB"
+    NET = "mainnet"
+    XPUB_VERBYTES = bytes.fromhex("02fe52cc")
+    XPRV_VERBYTES = bytes.fromhex("02fe52f8")
+    GENESIS_HASH = ('00000ffd590b1485b3caadc19b22e637'
+                    '9c733355108f107a430458cdf3407ab6')
+    P2PKH_VERBYTE = bytes.fromhex("4c")
+    P2SH_VERBYTES = (bytes.fromhex("10"),)
+    WIF_BYTE = bytes.fromhex("cc")
+    TX_COUNT_HEIGHT = 270000
+    TX_COUNT = 445910
+    TX_PER_BLOCK = 4
+    RPC_PORT = 31313
+    PEERS = [
+    ]
+    SESSIONCLS = DashElectrumX
+    DAEMON = daemon.DashDaemon
+    DESERIALIZER = lib_tx_dash.DeserializerDash
