@@ -3993,7 +3993,7 @@ class Syscoin(AuxPowMixin, Coin):
 
 
 # Source: https://github.com/xazab/xazab
-class Xazab(Coin):
+class Xazab(Dash):
     NAME = "Xazab"
     SHORTNAME = "XAZAB"
     NET = "mainnet"
@@ -4013,3 +4013,9 @@ class Xazab(Coin):
     SESSIONCLS = DashElectrumX
     DAEMON = daemon.DashDaemon
     DESERIALIZER = lib_tx_dash.DeserializerDash
+
+    @classmethod
+    def header_hash(cls, header):
+        '''Given a header return the hash.'''
+        import x11_hash
+        return x11_hash.getPoWHash(header)
